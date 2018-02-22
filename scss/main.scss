@@ -1,0 +1,350 @@
+@import 'font.scss';
+@import 'ios.scss';
+
+$mainRed: #ff0000;
+$mainGrey: #F7F5F5;
+$mainDark: #636B70;
+$mainButtonTextColor: #9B9B9B;
+$mainTextColor: #4A4A4A;
+
+h1, h2, h3, h4, p, span, label, input, button  {
+    font-family: 'Frutiger' !important;
+}
+button {
+    border-color: transparent !important;
+    background: #f8f8f8 !important;
+
+    .active, .activated, &:focus, &:active, &:hover, &:target {
+        outline: 0;
+        border-color: transparent !important;
+        background: #f8f8f8 !important;
+    }
+}
+.button-clear {
+    border-color: transparent !important;
+    background: transparent !important;
+
+    .active, .activated, &:focus, &:active, &:hover, &:target {
+        outline: 0;
+        border-color: transparent !important;
+        background: transparent !important;
+    }
+}
+
+.md-input-focused {
+    input, md-select-value {
+        border-color: $mainRed !important;
+    }
+}
+md-input-container {
+    padding: 0;
+    width: 100%;
+}
+
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"] {
+    border-width: 0 0 1px;
+    border-style: solid;
+    border-color: rgba(0,0,0,0.12);
+}
+// md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused label, md-input-container:not(.md-input-invalid).md-input-focused label, md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused md-icon, md-input-container:not(.md-input-invalid).md-input-focused md-icon {
+//     color: $mainRed;
+// }
+// md-input-container.md-default-theme:not(.md-input-invalid).md-input-focused .md-input, md-input-container:not(.md-input-invalid).md-input-focused .md-input, md-input-container.md-default-theme:not(.md-input-invalid).md-input-resized .md-input, md-input-container:not(.md-input-invalid).md-input-resized .md-input {
+//     border-color: $mainRed;
+// }
+md-checkbox.md-default-theme.md-checked .md-icon, md-checkbox.md-checked .md-icon {
+    background: $mainRed;
+}
+md-radio-button.md-default-theme:not([disabled]).md-primary.md-checked .md-off, md-radio-button:not([disabled]).md-primary.md-checked .md-off, md-radio-button.md-default-theme:not([disabled]) .md-primary.md-checked .md-off, md-radio-button:not([disabled]) .md-primary.md-checked .md-off, md-radio-button.md-default-theme:not([disabled]).md-primary .md-checked .md-off, md-radio-button:not([disabled]).md-primary .md-checked .md-off, md-radio-button.md-default-theme:not([disabled]) .md-primary .md-checked .md-off, md-radio-button:not([disabled]) .md-primary .md-checked .md-off, md-radio-group.md-default-theme:not([disabled]).md-primary.md-checked .md-off, md-radio-group:not([disabled]).md-primary.md-checked .md-off, md-radio-group.md-default-theme:not([disabled]) .md-primary.md-checked .md-off, md-radio-group:not([disabled]) .md-primary.md-checked .md-off, md-radio-group.md-default-theme:not([disabled]).md-primary .md-checked .md-off, md-radio-group:not([disabled]).md-primary .md-checked .md-off, md-radio-group.md-default-theme:not([disabled]) .md-primary .md-checked .md-off, md-radio-group:not([disabled]) .md-primary .md-checked .md-off {
+    border-color: $mainRed;
+    background-color: $mainRed;
+}
+md-radio-button.md-default-theme:not([disabled]).md-primary .md-on, md-radio-button:not([disabled]).md-primary .md-on, md-radio-button.md-default-theme:not([disabled]) .md-primary .md-on, md-radio-button:not([disabled]) .md-primary .md-on, md-radio-group.md-default-theme:not([disabled]).md-primary .md-on, md-radio-group:not([disabled]).md-primary .md-on, md-radio-group.md-default-theme:not([disabled]) .md-primary .md-on, md-radio-group:not([disabled]) .md-primary .md-on {
+    background-color: white;
+    width: 6px;
+    height: 6px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+.md-active {
+    md-option[selected] {
+        .md-text {
+            color: $mainRed;
+        }
+    }
+}
+.row {
+    .col-50:nth-child(1) {
+        padding-right: 5px;
+    }
+    .col-50:nth-child(2) {
+        padding-left: 5px;
+    }
+}
+
+.spaj-active {
+    background-color: $mainDark !important;
+    color: white !important;
+
+    .active, .activated, &:focus, &:active, &:hover, &:target {
+        outline: 0;
+        border-color: transparent !important;
+        background: $mainDark !important;
+    }
+}
+.spaj-button {
+    font-weight: bold;
+    color: $mainButtonTextColor;
+}
+.spaj-title {
+    font-weight: bold !important;
+    font-size: 22px;
+    color: #FFFFFF;
+    letter-spacing: 0;
+}
+.spaj-dropdown-options {
+    background-color: $mainDark;
+    width: 100%;
+    margin-top: -10px;
+    padding-top: 28px !important;
+    padding-bottom: 28px !important;
+
+    md-input-container, .md-input-focused {
+        width: 100%;
+
+        label {
+            font-weight: bold;
+            font-size: 14px;
+            color: white !important;
+            letter-spacing: 0;
+        }
+
+        input {
+            font-size: 17px;
+            color: #F7F5F5;
+            letter-spacing: 0;
+            border-color: white !important;
+        }
+        
+        input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+            color: white !important;
+            font-weight: bold;
+        }
+        input::-moz-placeholder { /* Firefox 19+ */
+            color: white !important;
+            font-weight: bold;
+        }
+        input:-ms-input-placeholder { /* IE 10+ */
+            color: white !important;
+            font-weight: bold;
+        }
+        input:-moz-placeholder { /* Firefox 18- */
+            color: white !important;
+            font-weight: bold;
+        }
+    }
+}
+.spaj-footer {
+    padding: 0;
+    background-color: $mainRed;
+
+    button {
+        border-color: $mainRed !important; 
+        margin: 0 !important;
+        background: $mainRed !important;
+        font-weight: bold !important;
+        color: white;
+        font-size: 17px !important;
+        letter-spacing: -0.41px;
+
+        .active, .activated, &:focus, &:active, &:hover, &:target {
+            outline: 0;
+            border-color: $mainRed !important; 
+            color: white;
+            background: $mainRed !important;
+        }
+    }
+}
+.spaj-bar {
+    background-color: $mainRed;
+
+    .spaj-header {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        width: auto;
+
+        md-select {
+            max-width: 250px;
+
+            md-select-value {
+                border: 0;
+                color: white;
+
+                span, .md-text, .md-select-icon {
+                    color: white;
+                    font-size: 17px;
+                    font-weight: bold;
+                }
+            }
+        }
+        md-select.md-default-theme:not([disabled]):focus .md-select-value, md-select:not([disabled]):focus .md-select-value {
+            border-color: transparent;
+        }
+    }
+}
+.spaj-tabs {
+    .has-tabs-top {
+        top: 93px !important;
+    }
+    .has-footer {
+        bottom: 44px !important;
+        height: calc(100% - 137px);
+    }
+
+    .tab-item {
+        max-width: 100%;
+
+        span {
+            padding: 0 16px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: block;
+        }
+    }
+
+    .tab-item-active {
+        border-color: #ff0000 !important;
+        border-bottom-width: 2px;
+        border-style: solid;
+
+        span {
+            font-weight: bold;
+            font-size: 14px;
+            color: #D0021B;
+            letter-spacing: -0.41px;
+            color: $mainRed;
+        }
+    }
+}
+.spaj-required {
+    color: $mainTextColor !important;
+    font-weight: bold !important;
+    font-size: 17px;
+    color: #4A4A4A;
+    letter-spacing: 0;
+
+    &.padding-mobile {
+        padding: 0 18px;
+    }
+}
+.spaj-required {
+    &:after {
+        content: ' *';
+        color: $mainRed;
+    }
+}
+.spaj-notrequired {
+    color: $mainTextColor !important;
+    font-weight: bold !important;
+    font-size: 17px;
+    color: #4A4A4A;
+    letter-spacing: 0;
+
+    &.padding-mobile {
+        padding: 0 18px;
+    }
+}
+.spaj-notrequired {
+    &:after {
+        content: '';
+        color: $mainRed;
+    }
+}
+.spaj-button-back::before {
+    color: white;
+}
+.sapj-special-col {
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.md-select-menu-container {
+    // left: 50% !important;
+    // transform: translateX(-50%);
+    left: 16px !important;
+    right: 16px !important;
+}
+
+.spaj-container {
+    margin: 70px 0;
+}
+.spaj-stable {
+    background-color: $mainGrey;
+
+    .spaj-mobile-block {
+        padding: 40px 16px;
+
+        h4 {
+            font-size: 17px;
+            color: $mainTextColor;
+            letter-spacing: 0;
+            line-height: 26px;
+            font-weight: bold;
+        }
+
+        .md-label {
+            font-size: 17px;
+            color: $mainTextColor;
+            letter-spacing: 0;
+            line-height: 23px;
+            font-weight: normal;
+        }
+    }
+}
+.padding-mobile {
+    padding: 0 16px;
+}
+.padding-tablet {
+    padding: 0 60px;
+}
+
+.spaj-step-group {
+    padding-top: 65px;
+    // padding-bottom: 65px;
+
+    .group-title {
+        display: flex;
+        align-items: center;
+        margin: 16px 0;
+
+        h3 {
+            font-weight: bold;
+            font-size: 24px;
+            color: $mainTextColor;
+            letter-spacing: 0;
+            margin: 0;
+
+            &:before {
+                content: '';
+                margin-left: 10px !important;
+            }
+        }
+    }
+
+    md-input-container {
+        width: 100%;
+
+        label {
+            color: $mainTextColor !important;
+            font-weight: bold !important;
+            font-size: 17px;
+            color: #4A4A4A;
+            letter-spacing: 0;
+        }
+    }
+}

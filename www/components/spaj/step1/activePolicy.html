@@ -1,0 +1,72 @@
+<ion-view ng-init="::$root.headerString = '';">
+    <custom-header></custom-header>
+
+    <ion-tabs class="spaj-tabs">
+        <ion-tab title="Tertanggung Utama">
+            <ion-content class="has-tabs-top has-footer">
+                <div class="spaj-step-group padding-mobile">
+                    <h3>Apakah Calon Tertanggung juga sebagai Tertanggung pada Polis lain di Prudential dan/atau Perusahaan Asuransi Jiwa lain</h3>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <button class="button button-full spaj-button" ng-class="data.policyQuestion1===true ? 'spaj-active' : ''" ng-model="data.policyQuestion1" ng-click="data.policyQuestion1=true; $root.resizeView();">Ya</button>
+                        </div>
+                        <div class="col">
+                            <button class="button button-full spaj-button" ng-class="data.policyQuestion1===false ? 'spaj-active' : ''" ng-model="data.policyQuestion1" ng-click="data.policyQuestion1=false; $root.resizeView();">Tidak</button>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile responsive-sm" ng-if="data.policyQuestion1===true;">
+                        <div class="col-10">
+                            1
+                        </div>
+                        <div class="col-25">
+                            <md-input-container>
+                                <label>Tipe Asuransi</label>
+                                <md-select ng-model="data.typeOfInsurance">
+                                    <md-option ng-selected="true"><em>Tipe Asuransi</em></md-option>
+                                    <md-option><em>Option 1</em></md-option>
+                                    <md-option><em>Option 2</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                        <div class="col-25">
+                            <md-input-container>
+                                <label>Perusahaan</label>
+                                <input type="text" ng-model="data.company" placeholder="Enter">
+                            </md-input-container>
+                        </div>
+                        <div class="col-25">
+                            <md-input-container>
+                                <label>Uang Pertanggungan</label>
+                                <input type="text" ng-model="data.sumInsured" placeholder="Enter">
+                            </md-input-container>
+                        </div>
+                        <div class="col-25">
+                            <md-input-container>
+                                <label>Substandard</label>
+                                <md-select ng-model="data.subStandard">
+                                    <md-option ng-selected="true"><em>Substandard</em></md-option>
+                                    <md-option><em>Option 1</em></md-option>
+                                    <md-option><em>Option 2</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col-80">
+                            <button class="button button-stable button-full spaj-button">+ Tambah No. Tel. Kantor</button>
+                        </div>
+                        <div class="col-20">
+                            <button class="button button-stable button-full spaj-button">
+                                <i class="fa fa-trash-o" aria-hidden="true"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </ion-content>
+        </ion-tab>
+        <ion-tab title="+ Tertanggung Tambahan">
+        <!-- Tab 2 content -->
+        </ion-tab>
+    </ion-tabs>
+    <custom-footer></custom-footer>
+</ion-view>

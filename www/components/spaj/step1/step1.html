@@ -1,0 +1,1091 @@
+<ion-view ng-init="initialize();" ng-controller="Step1Ctrl">
+    <custom-header></custom-header>
+
+    <!-- <ion-content class="has-header">
+        
+        
+    </ion-content> -->
+
+    <ion-tabs class="spaj-tabs">
+        <ion-tab title="{{::titleTabs[0]}}" >
+            <ion-content class="has-tabs-top has-footer">
+                <!-- INFORMASI -->
+                <div class="spaj-step-group padding-mobile">
+                    <div class="group-title">
+                        <img src="img/informasi_pribadi.svg" alt="">
+                        <h3>INFORMASI PRIBADI</h3>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">Nama Lengkap</label>
+                                <input type="text" placeholder="Enter" ng-model="data.fullName">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-input-container>
+                                <label class="spaj-required">Kota Tempat</label>
+                                <md-select ng-model="data.cityPlace">
+                                    <md-option ng-selected="true"><em>Kota Tempat</em></md-option>
+                                    <md-option ng-repeat="city in ::$root.citiesPlace track by $index" ng-value="::city.code" ng-click="selectHandler(data.cityPlace, city.code)"><em>{{::city.name}}</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                        <div class="col col-50">
+                            <md-input-container>
+                                <label class="spaj-required">Tanggal Lahir</label>
+                                <input type="date" ng-model="data.dateOfBirth" placeholder="MM/DD/YYYY">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <label class="spaj-required padding-mobile">Jenis Kelamin</label>
+                    <div class="row padding-mobile">
+                        <div class="col-50">
+                            <button class="button button-stable button-full">PRIA</button>
+                        </div>
+                        <div class="col-50">
+                            <button class="button button-stable button-full">WANITA</button>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">Status Pernikahan</label>
+                                <md-select ng-model="data.weddingStatus">
+                                    <md-option value="Belum Menikah"><em>Belum Menikah</em></md-option>
+                                    <md-option value="Menikah" ng-selected="true"><em>Menikah</em></md-option>
+                                    <md-option value="Duda"><em>Duda</em></md-option>
+                                    <md-option value="Janda"><em>Janda</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label>Agama</label>
+                                <md-select ng-model="data.religion">
+                                    <md-option value="" ng-selected="true"><em>None</em></md-option>
+                                    <md-option value="Islam"><em>Islam</em></md-option>
+                                    <md-option value="Kristen"><em>Kristen</em></md-option>
+                                    <md-option value="Katolik"><em>Katolik</em></md-option>
+                                    <md-option value="Hindu"><em>Hindu</em></md-option>
+                                    <md-option value="Budha"><em>Budha</em></md-option>
+                                    <md-option value="Lainnya"><em>Lainnya</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">Negara Kelahiran</label>
+                                <md-select ng-model="data.country">
+                                    <md-option ng-value=""><em>Negara Kelahiran</em></md-option>
+                                    <md-option ng-repeat="country in ::$root.countries track by $index" ng-value="country"><em>{{country}}</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">Kewarganegaraan</label>
+                                <md-select ng-model="data.citizenShip">
+                                    <md-option ng-selected="true" ng-value=""><em>Kewarganegaraan</em></md-option>
+                                    <md-option ng-repeat="country in countries track by $index" ng-value="country"><em>{{country}}</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">No Kartu Identitas</label>
+                                <input type="text" ng-model="data.identityCard" placeholder="Enter">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <label class="spaj-required padding-mobile">Masa Berlaku</label>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-radio-group ng-model="data.periodValidity">
+                                <md-radio-button value="Seumur hidup" class="md-primary">Seumur hidup</md-radio-button>
+                            </md-radio-group>
+                        </div>
+                        <div class="col col-50">
+                            <md-radio-group ng-model="data.periodValidity">
+                                <md-radio-button value="Tidak" class="md-primary">Tidak</md-radio-button>
+                            </md-radio-group>
+                        </div>
+                    </div>
+                    <label class="spaj-required padding-mobile">Status Pajak</label>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-33">
+                            <md-checkbox aria-label="Disabled checkbox" ng-model="data.taxStatus1">Wajib Pajak Indonesia</md-checkbox>
+                        </div>
+                        <div class="col col-33">
+                            <md-checkbox aria-label="Disabled checkbox" ng-model="data.taxStatus2">Pembayar pajak AS</md-checkbox>
+                        </div>
+                        <div class="col col-33">
+                            <md-checkbox aria-label="Disabled checkbox" ng-model="data.taxStatus3">Lainnya</md-checkbox>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PEKERJAAN -->
+                <div class="spaj-step-group padding-mobile">
+                    <div class="group-title">
+                        <img src="img/pekerjaan.svg" alt="">
+                        <h3>PEKERJAAN</h3>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">Pekerjaan</label>
+                                <md-select ng-model="data.occupation">
+                                    <md-option ng-selected="true"><em>Pekerjaan</em></md-option>
+                                    <md-option ng-repeat="occupation in ::$root.occupations track by $index" ng-value="::occupation.name"><em>{{::occupation.name}}</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label>Nama Perusahaan Tempat Bekerja</label>
+                                <input type="text" placeholder="Enter">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label>Alamat Kantor</label>
+                                <input type="text" placeholder="Enter">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <label class="spaj-notrequired padding-mobile">No. Tel. Kantor</label>
+                    <div class="row padding-mobile responsive-sm" ng-repeat="no in data.noTelOffice">
+                        <div class="col col-20 sapj-special-col">
+                            <md-input-container>
+                                <md-select ng-model="no.code">
+                                    <md-option ng-repeat="code in ::$root.telCodes track by $index" ng-value="::code.code" ><em>{{::code.code}} ({{::code.name}})</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                        <div class="col" ng-class="data.noTelOffice.length > 1 ? 'col-60' : 'col-80'">
+                            <div class="row">
+                                <div class="col col-20">
+                                    <md-input-container>
+                                        <input ng-model="no.target" type="number" placeholder="XXX">
+                                    </md-input-container>
+                                </div>
+                                <div class="col col-60">
+                                    <md-input-container>
+                                        <input ng-model="no.tel" type="number" placeholder="XXXXXXXX">
+                                    </md-input-container>
+                                </div>
+                                <div class="col col-20" ng-if="data.noTelOffice.length > 1">
+                                    <button class="button button-stable button-full spaj-button" ng-click="deleteNoTelOffice($index);">
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <button class="button button-stable button-full spaj-button" ng-click="addNoTelOffice();">+ Tambah No. Tel. Kantor</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spaj-step-group padding-mobile">
+                    <div class="group-title">
+                        <img src="img/tempat_tinggal.svg" alt="">
+                        <h3>TEMPAT TINGGAL</h3>
+                    </div>
+
+                    <label class="spaj-required padding-mobile">Alamat Tempat Tinggal</label>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-radio-group ng-model="data.address">
+                                <md-radio-button value="Indonesia" class="md-primary">Indonesia</md-radio-button>
+                            </md-radio-group>
+                        </div>
+                        <div class="col col-50">
+                            <md-radio-group ng-model="data.address">
+                                <md-radio-button value="Diluar Indonesia" class="md-primary">Diluar Indonesia</md-radio-button>
+                            </md-radio-group>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">Alamat</label>
+                                <input type="text" placeholder="Enter">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <input type="text" placeholder="RT">
+                            </md-input-container>
+                        </div>
+                        <div class="col">
+                            <md-input-container>
+                                <input type="text" placeholder="RW">
+                            </md-input-container>
+                        </div>
+                        <div class="col">
+                            <md-input-container>
+                                <input type="text" placeholder="KM">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <input type="text" placeholder="Kecamatan">
+                            </md-input-container>
+                        </div>
+                        <div class="col">
+                            <md-input-container>
+                                <input type="text" placeholder="Kelurahan">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">Provinsi</label>
+                                <input type="text" placeholder="Enter">
+                            </md-input-container>
+                        </div>
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">Kota</label>
+                                <input type="text" placeholder="Enter">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <input type="text" placeholder="Kode Pos">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <input type="text" placeholder="No. Tel. Rumah">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <button class="button button-stable button-full spaj-button">+ Tambah No. Tel. Rumah</button>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <input type="text" placeholder="No. HP/GSM">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col-80">
+                            <button class="button button-stable button-full spaj-button">+ Tambah No. HP/GSM</button>
+                        </div>
+                    </div>
+                    <label class="spaj-notrequired padding-mobile">Sumber penghasilan rutin per bulan</label>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-checkbox>Gaji</md-checkbox>
+                        </div>
+                        <div class="col col-50">
+                            <md-checkbox>Komisi</md-checkbox>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-checkbox>Orang Tua</md-checkbox>
+                        </div>
+                        <div class="col col-50">
+                            <md-checkbox>Laba Perusahaan</md-checkbox>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-checkbox>Investasi</md-checkbox>
+                        </div>
+                        <div class="col col-50">
+                            <md-checkbox>Bonus</md-checkbox>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-checkbox>Bisnis Sendiri</md-checkbox>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-checkbox>Lainnya</md-checkbox>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-checkbox>Tidak Berpenghasilan</md-checkbox>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <md-select ng-model="data.income">
+                                    <md-option ng-selected="true"><em>Total penghasilan rutin per bula</em></md-option>
+                                    <md-option><em>None</em></md-option>
+                                    <md-option><em> > IDR 5 Juta - IDR 10 Juta</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <input type="email" placeholder="Email">
+                            </md-input-container>
+                        </div>
+                    </div>
+                </div>
+            </ion-content>
+        </ion-tab>
+        <ion-tab title="{{::titleTabs[1]}}" ng-if="lengthOfTab > 0" >
+            <ion-content class="has-tabs-top has-footer">
+                <!-- INFORMASI -->
+                <div class="spaj-step-group padding-mobile">
+                    <div class="group-title">
+                        <img src="img/informasi_pribadi.svg" alt="">
+                        <h3>INFORMASI PRIBADI</h3>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">Nama Lengkap</label>
+                                <input type="text" placeholder="Enter" ng-model="data.fullName">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-input-container>
+                                <label class="spaj-required">Kota Tempat</label>
+                                <md-select ng-model="data.cityPlace">
+                                    <md-option ng-selected="true"><em>Kota Tempat</em></md-option>
+                                    <md-option ng-repeat="city in ::$root.citiesPlace track by $index" ng-value="::city.code" ng-click="selectHandler(data.cityPlace, city.code)"><em>{{::city.name}}</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                        <div class="col col-50">
+                            <md-input-container>
+                                <label class="spaj-required">Tanggal Lahir</label>
+                                <input type="date" ng-model="data.dateOfBirth" placeholder="MM/DD/YYYY">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <label class="spaj-required padding-mobile">Jenis Kelamin</label>
+                    <div class="row padding-mobile">
+                        <div class="col-50">
+                            <button class="button button-stable button-full">PRIA</button>
+                        </div>
+                        <div class="col-50">
+                            <button class="button button-stable button-full">WANITA</button>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">Status Pernikahan</label>
+                                <md-select ng-model="data.weddingStatus">
+                                    <md-option value="Belum Menikah"><em>Belum Menikah</em></md-option>
+                                    <md-option value="Menikah" ng-selected="true"><em>Menikah</em></md-option>
+                                    <md-option value="Duda"><em>Duda</em></md-option>
+                                    <md-option value="Janda"><em>Janda</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label>Agama</label>
+                                <md-select ng-model="data.religion">
+                                    <md-option value="" ng-selected="true"><em>None</em></md-option>
+                                    <md-option value="Islam"><em>Islam</em></md-option>
+                                    <md-option value="Kristen"><em>Kristen</em></md-option>
+                                    <md-option value="Katolik"><em>Katolik</em></md-option>
+                                    <md-option value="Hindu"><em>Hindu</em></md-option>
+                                    <md-option value="Budha"><em>Budha</em></md-option>
+                                    <md-option value="Lainnya"><em>Lainnya</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">Negara Kelahiran</label>
+                                <md-select ng-model="data.country">
+                                    <md-option ng-value=""><em>Negara Kelahiran</em></md-option>
+                                    <md-option ng-repeat="country in ::$root.countries track by $index" ng-value="country"><em>{{country}}</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">Kewarganegaraan</label>
+                                <md-select ng-model="data.citizenShip">
+                                    <md-option ng-selected="true" ng-value=""><em>Kewarganegaraan</em></md-option>
+                                    <md-option ng-repeat="country in countries track by $index" ng-value="country"><em>{{country}}</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">No Kartu Identitas</label>
+                                <input type="text" ng-model="data.identityCard" placeholder="Enter">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <label class="spaj-required padding-mobile">Masa Berlaku</label>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-radio-group ng-model="data.periodValidity">
+                                <md-radio-button value="Seumur hidup" class="md-primary">Seumur hidup</md-radio-button>
+                            </md-radio-group>
+                        </div>
+                        <div class="col col-50">
+                            <md-radio-group ng-model="data.periodValidity">
+                                <md-radio-button value="Tidak" class="md-primary">Tidak</md-radio-button>
+                            </md-radio-group>
+                        </div>
+                    </div>
+                    <label class="spaj-required padding-mobile">Status Pajak</label>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-33">
+                            <md-checkbox aria-label="Disabled checkbox" ng-model="data.taxStatus1">Wajib Pajak Indonesia</md-checkbox>
+                        </div>
+                        <div class="col col-33">
+                            <md-checkbox aria-label="Disabled checkbox" ng-model="data.taxStatus2">Pembayar pajak AS</md-checkbox>
+                        </div>
+                        <div class="col col-33">
+                            <md-checkbox aria-label="Disabled checkbox" ng-model="data.taxStatus3">Lainnya</md-checkbox>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PEKERJAAN -->
+                <div class="spaj-step-group padding-mobile">
+                    <div class="group-title">
+                        <img src="img/pekerjaan.svg" alt="">
+                        <h3>PEKERJAAN</h3>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">Pekerjaan</label>
+                                <md-select ng-model="data.occupation">
+                                    <md-option ng-selected="true"><em>Pekerjaan</em></md-option>
+                                    <md-option ng-repeat="occupation in ::$root.occupations track by $index" ng-value="::occupation.name"><em>{{::occupation.name}}</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label>Nama Perusahaan Tempat Bekerja</label>
+                                <input type="text" placeholder="Enter">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label>Alamat Kantor</label>
+                                <input type="text" placeholder="Enter">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <label class="spaj-notrequired padding-mobile">No. Tel. Kantor</label>
+                    <div class="row padding-mobile responsive-sm" ng-repeat="no in data.noTelOffice">
+                        <div class="col col-20 sapj-special-col">
+                            <md-input-container>
+                                <md-select ng-model="no.code">
+                                    <md-option ng-repeat="code in ::$root.telCodes track by $index" ng-value="::code.code" ><em>{{::code.code}} ({{::code.name}})</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                        <div class="col" ng-class="data.noTelOffice.length > 1 ? 'col-60' : 'col-80'">
+                            <div class="row">
+                                <div class="col col-20">
+                                    <md-input-container>
+                                        <input ng-model="no.target" type="number" placeholder="XXX">
+                                    </md-input-container>
+                                </div>
+                                <div class="col col-60">
+                                    <md-input-container>
+                                        <input ng-model="no.tel" type="number" placeholder="XXXXXXXX">
+                                    </md-input-container>
+                                </div>
+                                <div class="col col-20" ng-if="data.noTelOffice.length > 1">
+                                    <button class="button button-stable button-full spaj-button" ng-click="deleteNoTelOffice($index);">
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <button class="button button-stable button-full spaj-button" ng-click="addNoTelOffice();">+ Tambah No. Tel. Kantor</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spaj-step-group padding-mobile">
+                    <div class="group-title">
+                        <img src="img/tempat_tinggal.svg" alt="">
+                        <h3>TEMPAT TINGGAL</h3>
+                    </div>
+
+                    <label class="spaj-required padding-mobile">Alamat Tempat Tinggal</label>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-radio-group ng-model="data.address">
+                                <md-radio-button value="Indonesia" class="md-primary">Indonesia</md-radio-button>
+                            </md-radio-group>
+                        </div>
+                        <div class="col col-50">
+                            <md-radio-group ng-model="data.address">
+                                <md-radio-button value="Diluar Indonesia" class="md-primary">Diluar Indonesia</md-radio-button>
+                            </md-radio-group>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">Alamat</label>
+                                <input type="text" placeholder="Enter">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <input type="text" placeholder="RT">
+                            </md-input-container>
+                        </div>
+                        <div class="col">
+                            <md-input-container>
+                                <input type="text" placeholder="RW">
+                            </md-input-container>
+                        </div>
+                        <div class="col">
+                            <md-input-container>
+                                <input type="text" placeholder="KM">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <input type="text" placeholder="Kecamatan">
+                            </md-input-container>
+                        </div>
+                        <div class="col">
+                            <md-input-container>
+                                <input type="text" placeholder="Kelurahan">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">Provinsi</label>
+                                <input type="text" placeholder="Enter">
+                            </md-input-container>
+                        </div>
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">Kota</label>
+                                <input type="text" placeholder="Enter">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <input type="text" placeholder="Kode Pos">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <input type="text" placeholder="No. Tel. Rumah">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <button class="button button-stable button-full spaj-button">+ Tambah No. Tel. Rumah</button>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <input type="text" placeholder="No. HP/GSM">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col-80">
+                            <button class="button button-stable button-full spaj-button">+ Tambah No. HP/GSM</button>
+                        </div>
+                    </div>
+                    <label class="spaj-notrequired padding-mobile">Sumber penghasilan rutin per bulan</label>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-checkbox>Gaji</md-checkbox>
+                        </div>
+                        <div class="col col-50">
+                            <md-checkbox>Komisi</md-checkbox>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-checkbox>Orang Tua</md-checkbox>
+                        </div>
+                        <div class="col col-50">
+                            <md-checkbox>Laba Perusahaan</md-checkbox>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-checkbox>Investasi</md-checkbox>
+                        </div>
+                        <div class="col col-50">
+                            <md-checkbox>Bonus</md-checkbox>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-checkbox>Bisnis Sendiri</md-checkbox>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-checkbox>Lainnya</md-checkbox>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-checkbox>Tidak Berpenghasilan</md-checkbox>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <md-select ng-model="data.income">
+                                    <md-option ng-selected="true"><em>Total penghasilan rutin per bula</em></md-option>
+                                    <md-option><em>None</em></md-option>
+                                    <md-option><em> > IDR 5 Juta - IDR 10 Juta</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <input type="email" placeholder="Email">
+                            </md-input-container>
+                        </div>
+                    </div>
+                </div>
+            </ion-content>
+        </ion-tab>
+        <ion-tab title="{{::titleTabs[2]}}" ng-if="lengthOfTab > 1" >
+            <ion-content class="has-tabs-top has-footer">
+                <!-- INFORMASI -->
+                <div class="spaj-step-group padding-mobile">
+                    <div class="group-title">
+                        <img src="img/informasi_pribadi.svg" alt="">
+                        <h3>INFORMASI PRIBADI</h3>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">Nama Lengkap</label>
+                                <input type="text" placeholder="Enter" ng-model="data.fullName">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-input-container>
+                                <label class="spaj-required">Kota Tempat</label>
+                                <md-select ng-model="data.cityPlace">
+                                    <md-option ng-selected="true"><em>Kota Tempat</em></md-option>
+                                    <md-option ng-repeat="city in ::$root.citiesPlace track by $index" ng-value="::city.code" ng-click="selectHandler(data.cityPlace, city.code)"><em>{{::city.name}}</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                        <div class="col col-50">
+                            <md-input-container>
+                                <label class="spaj-required">Tanggal Lahir</label>
+                                <input type="date" ng-model="data.dateOfBirth" placeholder="MM/DD/YYYY">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <label class="spaj-required padding-mobile">Jenis Kelamin</label>
+                    <div class="row padding-mobile">
+                        <div class="col-50">
+                            <button class="button button-stable button-full">PRIA</button>
+                        </div>
+                        <div class="col-50">
+                            <button class="button button-stable button-full">WANITA</button>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">Status Pernikahan</label>
+                                <md-select ng-model="data.weddingStatus">
+                                    <md-option value="Belum Menikah"><em>Belum Menikah</em></md-option>
+                                    <md-option value="Menikah" ng-selected="true"><em>Menikah</em></md-option>
+                                    <md-option value="Duda"><em>Duda</em></md-option>
+                                    <md-option value="Janda"><em>Janda</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label>Agama</label>
+                                <md-select ng-model="data.religion">
+                                    <md-option value="" ng-selected="true"><em>None</em></md-option>
+                                    <md-option value="Islam"><em>Islam</em></md-option>
+                                    <md-option value="Kristen"><em>Kristen</em></md-option>
+                                    <md-option value="Katolik"><em>Katolik</em></md-option>
+                                    <md-option value="Hindu"><em>Hindu</em></md-option>
+                                    <md-option value="Budha"><em>Budha</em></md-option>
+                                    <md-option value="Lainnya"><em>Lainnya</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">Negara Kelahiran</label>
+                                <md-select ng-model="data.country">
+                                    <md-option ng-value=""><em>Negara Kelahiran</em></md-option>
+                                    <md-option ng-repeat="country in ::$root.countries track by $index" ng-value="country"><em>{{country}}</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">Kewarganegaraan</label>
+                                <md-select ng-model="data.citizenShip">
+                                    <md-option ng-selected="true" ng-value=""><em>Kewarganegaraan</em></md-option>
+                                    <md-option ng-repeat="country in countries track by $index" ng-value="country"><em>{{country}}</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">No Kartu Identitas</label>
+                                <input type="text" ng-model="data.identityCard" placeholder="Enter">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <label class="spaj-required padding-mobile">Masa Berlaku</label>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-radio-group ng-model="data.periodValidity">
+                                <md-radio-button value="Seumur hidup" class="md-primary">Seumur hidup</md-radio-button>
+                            </md-radio-group>
+                        </div>
+                        <div class="col col-50">
+                            <md-radio-group ng-model="data.periodValidity">
+                                <md-radio-button value="Tidak" class="md-primary">Tidak</md-radio-button>
+                            </md-radio-group>
+                        </div>
+                    </div>
+                    <label class="spaj-required padding-mobile">Status Pajak</label>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-33">
+                            <md-checkbox aria-label="Disabled checkbox" ng-model="data.taxStatus1">Wajib Pajak Indonesia</md-checkbox>
+                        </div>
+                        <div class="col col-33">
+                            <md-checkbox aria-label="Disabled checkbox" ng-model="data.taxStatus2">Pembayar pajak AS</md-checkbox>
+                        </div>
+                        <div class="col col-33">
+                            <md-checkbox aria-label="Disabled checkbox" ng-model="data.taxStatus3">Lainnya</md-checkbox>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- PEKERJAAN -->
+                <div class="spaj-step-group padding-mobile">
+                    <div class="group-title">
+                        <img src="img/pekerjaan.svg" alt="">
+                        <h3>PEKERJAAN</h3>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">Pekerjaan</label>
+                                <md-select ng-model="data.occupation">
+                                    <md-option ng-selected="true"><em>Pekerjaan</em></md-option>
+                                    <md-option ng-repeat="occupation in ::$root.occupations track by $index" ng-value="::occupation.name"><em>{{::occupation.name}}</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label>Nama Perusahaan Tempat Bekerja</label>
+                                <input type="text" placeholder="Enter">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label>Alamat Kantor</label>
+                                <input type="text" placeholder="Enter">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <label class="spaj-notrequired padding-mobile">No. Tel. Kantor</label>
+                    <div class="row padding-mobile responsive-sm" ng-repeat="no in data.noTelOffice">
+                        <div class="col col-20 sapj-special-col">
+                            <md-input-container>
+                                <md-select ng-model="no.code">
+                                    <md-option ng-repeat="code in ::$root.telCodes track by $index" ng-value="::code.code" ><em>{{::code.code}} ({{::code.name}})</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                        <div class="col" ng-class="data.noTelOffice.length > 1 ? 'col-60' : 'col-80'">
+                            <div class="row">
+                                <div class="col col-20">
+                                    <md-input-container>
+                                        <input ng-model="no.target" type="number" placeholder="XXX">
+                                    </md-input-container>
+                                </div>
+                                <div class="col col-60">
+                                    <md-input-container>
+                                        <input ng-model="no.tel" type="number" placeholder="XXXXXXXX">
+                                    </md-input-container>
+                                </div>
+                                <div class="col col-20" ng-if="data.noTelOffice.length > 1">
+                                    <button class="button button-stable button-full spaj-button" ng-click="deleteNoTelOffice($index);">
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <button class="button button-stable button-full spaj-button" ng-click="addNoTelOffice();">+ Tambah No. Tel. Kantor</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spaj-step-group padding-mobile">
+                    <div class="group-title">
+                        <img src="img/tempat_tinggal.svg" alt="">
+                        <h3>TEMPAT TINGGAL</h3>
+                    </div>
+
+                    <label class="spaj-required padding-mobile">Alamat Tempat Tinggal</label>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-radio-group ng-model="data.address">
+                                <md-radio-button value="Indonesia" class="md-primary">Indonesia</md-radio-button>
+                            </md-radio-group>
+                        </div>
+                        <div class="col col-50">
+                            <md-radio-group ng-model="data.address">
+                                <md-radio-button value="Diluar Indonesia" class="md-primary">Diluar Indonesia</md-radio-button>
+                            </md-radio-group>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">Alamat</label>
+                                <input type="text" placeholder="Enter">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <input type="text" placeholder="RT">
+                            </md-input-container>
+                        </div>
+                        <div class="col">
+                            <md-input-container>
+                                <input type="text" placeholder="RW">
+                            </md-input-container>
+                        </div>
+                        <div class="col">
+                            <md-input-container>
+                                <input type="text" placeholder="KM">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <input type="text" placeholder="Kecamatan">
+                            </md-input-container>
+                        </div>
+                        <div class="col">
+                            <md-input-container>
+                                <input type="text" placeholder="Kelurahan">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">Provinsi</label>
+                                <input type="text" placeholder="Enter">
+                            </md-input-container>
+                        </div>
+                        <div class="col">
+                            <md-input-container>
+                                <label class="spaj-required">Kota</label>
+                                <input type="text" placeholder="Enter">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <input type="text" placeholder="Kode Pos">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <input type="text" placeholder="No. Tel. Rumah">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <button class="button button-stable button-full spaj-button">+ Tambah No. Tel. Rumah</button>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <input type="text" placeholder="No. HP/GSM">
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col-80">
+                            <button class="button button-stable button-full spaj-button">+ Tambah No. HP/GSM</button>
+                        </div>
+                    </div>
+                    <label class="spaj-notrequired padding-mobile">Sumber penghasilan rutin per bulan</label>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-checkbox>Gaji</md-checkbox>
+                        </div>
+                        <div class="col col-50">
+                            <md-checkbox>Komisi</md-checkbox>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-checkbox>Orang Tua</md-checkbox>
+                        </div>
+                        <div class="col col-50">
+                            <md-checkbox>Laba Perusahaan</md-checkbox>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-checkbox>Investasi</md-checkbox>
+                        </div>
+                        <div class="col col-50">
+                            <md-checkbox>Bonus</md-checkbox>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-checkbox>Bisnis Sendiri</md-checkbox>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-checkbox>Lainnya</md-checkbox>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile responsive-sm">
+                        <div class="col col-50">
+                            <md-checkbox>Tidak Berpenghasilan</md-checkbox>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <md-select ng-model="data.income">
+                                    <md-option ng-selected="true"><em>Total penghasilan rutin per bula</em></md-option>
+                                    <md-option><em>None</em></md-option>
+                                    <md-option><em> > IDR 5 Juta - IDR 10 Juta</em></md-option>
+                                </md-select>
+                            </md-input-container>
+                        </div>
+                    </div>
+                    <div class="row padding-mobile">
+                        <div class="col">
+                            <md-input-container>
+                                <input type="email" placeholder="Email">
+                            </md-input-container>
+                        </div>
+                    </div>
+                </div>
+            </ion-content>
+        </ion-tab>
+        <ion-tab title="+ Tertanggung Tambahan" ng-if="showAddTabButton" ng-click="addTab()"></ion-tab>
+    </ion-tabs>
+    
+    <custom-footer ng-click="::$root.footerHandler('active_policy')"></custom-footer>
+</ion-view>

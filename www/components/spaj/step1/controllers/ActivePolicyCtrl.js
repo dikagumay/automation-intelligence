@@ -1,0 +1,3 @@
+function ActivePolicyCtrl($scope) {
+
+}

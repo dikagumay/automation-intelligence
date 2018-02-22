@@ -1,0 +1,15 @@
+.platform-ios {
+    .spaj-bar {
+        .spaj-header {
+            margin-top: 10px !important;
+        }
+    }
+    .spaj-tabs {
+        .has-tabs-top {
+            top: 115px !important;
+        }
+        .has-footer {
+            height: calc(100% - 161px);
+        }
+    }
+}

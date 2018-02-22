@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="28px" viewBox="0 0 36 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
+    <title>personal information</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="2.91891892" y="4.91891892" width="33.0810811" height="22.3783784" rx="2.79999995"></rect>
+        <rect id="path-2" x="0" y="0" width="33.0810811" height="24.2461332" rx="2.79999995"></rect>
+    </defs>
+    <g id="SPAJ-BAHASA---&gt;-ALLOWED-TO-EDIT" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="2-PH---not-filled" transform="translate(-46.000000, -299.000000)">
+            <g id="Information" transform="translate(46.000000, 295.000000)">
+                <g id="Informasi-Icon">
+                    <g id="personal-information">
+                        <rect id="Rectangle" x="0" y="0" width="36" height="36"></rect>
+                        <g id="Group" stroke-width="1" fill-rule="evenodd" transform="translate(0.000000, 4.000000)">
+                            <g id="Rectangle-2">
+                                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
+                                <rect stroke="#979797" stroke-width="1.6" x="3.71891892" y="5.71891892" width="31.4810811" height="20.7783784" rx="2.79999995"></rect>
+                            </g>
+                            <g id="Rectangle-2">
+                                <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-2"></use>
+                                <rect stroke="#979797" stroke-width="1.6" x="0.8" y="0.8" width="31.4810811" height="22.6461332" rx="2.79999995"></rect>
+                            </g>
+                            <path d="M15.0810811,7.58918919 L21.8981438,7.58918919" id="Line" stroke="#979797" stroke-width="1.6" stroke-linecap="round"></path>
+                            <path d="M15.0810811,11.9675676 L28.7058298,11.9675676" id="Line" stroke="#979797" stroke-width="1.6" stroke-linecap="round"></path>
+                            <path d="M15.0810811,16.3459459 L28.7058298,16.3459459" id="Line" stroke="#979797" stroke-width="1.6" stroke-linecap="round"></path>
+                            <path d="M5.84458451,12.8108108 L10.1335614,12.8108108 C11.2114652,12.8120767 12.0849631,13.6855747 12.086229,14.7634784 L12.086229,17.5979654 L3.89191692,17.5979654 L3.89191692,14.7634784 C3.89318281,13.6855747 4.76668076,12.8120767 5.84458451,12.8108108 Z M8.30403572,6.81081191 C6.97089034,6.81208036 5.89107198,7.89361228 5.89191742,9.22675799 C5.89276285,10.5599037 6.97395208,11.6400652 8.30709799,11.6396428 C9.64024391,11.6392204 10.7207484,10.5583739 10.720749,9.22522795 C10.7207493,8.58448678 10.4660587,7.97002221 10.0127709,7.51716528 C9.5594831,7.06430834 8.9447766,6.81020226 8.30403572,6.81081191 Z" id="Shape" stroke="#9B9B9B" fill="#FFFFFF" fill-rule="nonzero"></path>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

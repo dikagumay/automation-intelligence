@@ -1,0 +1,132 @@
+<ion-view ng-init="initialize();">
+    <custom-header ></custom-header>
+    
+    <ion-content class="has-header has-footer text-center">
+        <div class="spaj-container spaj-stable text-left">
+            <div class="spaj-mobile-block">
+                <h4 class="text-center">Saya, calon pemegang polis mengkonfirmasi bahwa saya ...</h4>
+                <div class="row responsive-sm">
+                    <div class="col col-50">
+                        <md-radio-group ng-model="data.startOption1">    
+                            <md-radio-button value="Calon Tertanggung Utama" class="md-primary">Calon Tertanggung Utama</md-radio-button>
+                        </md-radio-group>
+                    </div>
+                    <div class="col col-50">
+                        <md-radio-group ng-model="data.startOption1">    
+                            <md-radio-button value="Calon Tertanggung Tambahan 1" class="md-primary">Calon Tertanggung Tambahan 1</md-radio-button>
+                        </md-radio-group>
+                    </div>
+                </div>
+                <div class="row responsive-sm">
+                    <div class="col col-50">
+                        <md-radio-group ng-model="data.startOption1">    
+                            <md-radio-button value="Calon Tertanggung Tambahan 2" class="md-primary">Calon Tertanggung Tambahan 2</md-radio-button>
+                        </md-radio-group>
+                    </div>
+                    <div class="col col-50">
+                        <md-radio-group ng-model="data.startOption1">    
+                            <md-radio-button value="Bukan Calon Tertanggung" class="md-primary">Bukan Calon Tertanggung</md-radio-button>
+                        </md-radio-group>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="padding-mobile">
+            <h3>Selanjutnya disebut sebagai Anda</h3>
+        </div>
+
+        <div class="spaj-container spaj-stable text-left">
+            <div class="spaj-mobile-block">
+                <h4 class="text-center">Calon pembayar premi adalah ...</h4>
+                <div class="row responsive-sm">
+                    <div class="col col-50">
+                        <md-radio-group ng-model="data.startOption2">    
+                            <md-radio-button value="Calon Pemegang Polis" class="md-primary">Calon Pemegang Polis</md-radio-button>
+                        </md-radio-group>
+                    </div>
+                    <div class="col col-50">
+                        <md-radio-group ng-model="data.startOption2">    
+                            <md-radio-button value="Calon Tertanggung Utama" class="md-primary">Calon Tertanggung Utama</md-radio-button>
+                        </md-radio-group>
+                    </div>
+                </div>
+                <div class="row responsive-sm">
+                    <div class="col col-50">
+                        <md-radio-group ng-model="data.startOption2">    
+                            <md-radio-button value="Calon Tertanggung Tambahan 1" class="md-primary">Calon Tertanggung Tambahan 1</md-radio-button>
+                        </md-radio-group>
+                    </div>
+                    <div class="col col-50">
+                        <md-radio-group ng-model="data.startOption2">    
+                            <md-radio-button value="Calon Tertanggung Tambahan 2" class="md-primary">Calon Tertanggung Tambahan 2</md-radio-button>
+                        </md-radio-group>
+                    </div>
+                </div>
+                <div class="row responsive-sm">
+                    <div class="col col-50">
+                        <md-radio-group ng-model="data.startOption2">    
+                            <md-radio-button value="Lainnya" class="md-primary">Lainnya</md-radio-button>
+                        </md-radio-group>
+                        <md-input-container ng-if="data.startOption2 === 'Lainnya'">
+                            <input type="text" placeholder="Enter">
+                        </md-input-container>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="padding-mobile">
+            <h3>Sebelum Anda melanjutkan pengisian SPAJ, mohon informasikan kepemilikan polis Anda sebelumnya</h3>
+        </div>
+
+        <div class="spaj-container padding-mobile">
+            <p class="text-center">Apakah Anda sebelumnya telah memiliki Polis Asuransi PT Prudential Life Assurance dengan Tertanggung yang sama dalam kondisi Polis tidak akti (lapsed)/telah dilakukan Penebusan Polis ( Surrendered), atau telah melakukan penurunan Premi lebih dari 25% dari nilai Premi sebelumnya (“Polis Lama”) dalam periode yang kurang dari 365 hari terhitung sejak tanggal SPAJ yang Anda tanda tangani ini?</p>
+
+            <div class="row">
+                <div class="col-50">
+                    <button class="button button-full spaj-button" ng-class="data.question1===true ? 'spaj-active' : ''" ng-model="data.question1" ng-click="data.question1=true; $root.resizeView();">Ya</button>
+                </div>
+                <div class="col-50">
+                    <button class="button button-full spaj-button" ng-class="data.question1===false ? 'spaj-active' : ''" ng-model="data.question1" ng-click="data.question1=false; $root.resizeView();">Tidak</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="spaj-container padding-mobile" ng-if="data.question1===true">
+            <p class="text-center">Apakah Anda mengerti kemungkinan dengan adanya konsekuensi-konsekuensi sebagaimana diatur dalam Polis yang timbul sehubungan dengan kondisi Polis Lama Anda dan pengajuan SPAJ ini?</p>
+
+            <div class="row">
+                <div class="col-50">
+                    <button class="button button-full spaj-button" ng-class="data.question2===true ? 'spaj-active' : ''" ng-model="data.question2" ng-click="data.question2=true">Ya</button>
+                </div>
+                <div class="col-50">
+                    <button class="button button-full spaj-button" ng-class="data.question2===false ? 'spaj-active' : ''" ng-model="data.question2" ng-click="data.question2=false">Tidak</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="spaj-container padding-mobile"  ng-if="data.question1===true">
+            <p class="text-center">Apakah Anda setuju dengan adanya SPAJ ini merupakan pengganti SPAJ yang pernah diajukan sebelumnya dimana Calon Pemegang Polis dan Calon Tertanggung merupakan orang yang sama. Dengan demikian, SAYA setuju Premi yang telah dibayarkan pada SPAJ sebelumnya secara otomatis akan dialihkan ke SPAJ ini. Dalam hal pada SPAJ sebelumnya SAYA melampirkan Surat Kuasa Pendebitan Kartu Kredit (SKPKK) atau Surat Kuasa Pendebitan Rekening (SKPR), SAYA mengerti bahwa untuk SPAJ ini, SAYA perlu melampirkan SKPKK atau SKPR baru</p>
+
+            <div class="row">
+                <div class="col-50">
+                    <button class="button button-full spaj-button" ng-class="data.question3===true ? 'spaj-active' : ''" ng-model="data.question3" ng-click="data.question3=true; $root.resizeView();">Ya</button>
+                </div>
+                <div class="col-50">
+                    <button class="button button-full spaj-button" ng-class="data.question3===false ? 'spaj-active' : ''" ng-model="data.question3" ng-click="data.question3=false; $root.resizeView();">Tidak</button>
+                </div>
+            </div>
+            <div class="row text-left" ng-if="data.question3===true">
+                <div class="spaj-dropdown-options padding-mobile">
+                    <md-input-container>
+                        <label>No. SPAJ Sebelumnya</label>
+                        <input type="text" placeholder="Enter">
+                    </md-input-container>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+
+    <custom-footer ng-click="goToStep1(data.startOption1)"></custom-footer>
+</ion-view>

@@ -1,0 +1,10 @@
+<ion-header-bar class="spaj-bar">
+    <button class="button icon-left ion-ios-arrow-back button-clear spaj-button-back" ng-click="$root.backHandler();"></button>
+    <h1 class="title spaj-title" ng-if="::$root.headerString !== ''">{{::$root.headerString}}</h1>
+    
+    <md-input-container class="spaj-header" ng-if="::$root.headerString === ''">
+        <md-select ng-model="$root.selectedStep">
+            <md-option ng-repeat="step in ::$root.steps" value="{{::step.value}}" ng-selected="::step.value === 1">{{::step.name}}</md-option>
+        </md-select>
+    </md-input-container>
+</ion-header-bar>

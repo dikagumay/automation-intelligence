@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 46.1 (44463) - http://www.bohemiancoding.com/sketch -->
+    <title>No smoking</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Smoker-Qns-Active" transform="translate(-253.000000, -10.000000)">
+            <g id="No-smoking-Inactive" transform="translate(253.000000, 10.000000)">
+                <g id="No-smoking">
+                    <circle id="Oval" fill="#FFFFFF" cx="18" cy="18" r="18"></circle>
+                    <path d="M27.2571429,3.6 L9.77142857,32.4" id="Line" stroke="#9B9B9B" stroke-width="1.6" stroke-linecap="square"></path>
+                    <path d="M8.02285714,6.17142857 L8.02285714,12.3428571" id="Line-2-Copy" stroke="#9B9B9B" stroke-width="1.6" stroke-linecap="round"></path>
+                    <path d="M11.1085714,6.17142857 L11.1085714,12.3428571" id="Line-2-Copy" stroke="#9B9B9B" stroke-width="1.6" stroke-linecap="round"></path>
+                    <g id="Group-2" transform="translate(4.114286, 15.049458)" stroke="#9B9B9B" stroke-width="1.6">
+                        <rect id="Rectangle-4" x="0.8" y="0.8" width="25.3905355" height="5.13570939" rx="2"></rect>
+                        <path d="M3.90857143,1.06953513 L3.90857143,5.34767567" id="Line-2" stroke-linecap="square"></path>
+                        <path d="M22.4228571,1.06953513 L22.4228571,5.34767567" id="Line-2" stroke-linecap="square"></path>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
